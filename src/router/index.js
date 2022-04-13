@@ -9,7 +9,15 @@ const routes = [
   {
     path: '/logout',
     component: () => import('@/views/Logout.vue')
-  }
+  },
+  {
+    path: '/manager/list',
+    component: () => import('@/views/manager/List.vue')
+  },
+  {
+      path: '/manager/findPassword',
+      component: () => import('@/views/manager/FindPassword.vue')
+  },
 ]
 
 const router = createRouter({

@@ -1,9 +1,9 @@
 <template>
-    <h3 class="title">Main</h3>
+    <h3>관리자목록</h3>
 </template>
 
 <script>
 export default {
-    name: 'Main-page',
+    name: 'List-page',
 };
 </script>

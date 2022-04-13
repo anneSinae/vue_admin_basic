@@ -1,9 +1,9 @@
 <template>
-    <h3 class="title">Main</h3>
+    <h3>비번 찾기</h3>
 </template>
 
 <script>
 export default {
-    name: 'Main-page',
+    name: 'FindPassword-page',
 };
 </script>
