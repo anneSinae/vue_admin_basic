@@ -1,7 +1,8 @@
-body, div, h1, h2, h3 {
+body, div, h1, h2, h3, li, ul, p {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style: none;
 }
 a {text-decoration: none;}
 
@@ -51,5 +52,14 @@ a {text-decoration: none;}
     float: right;
     width: 85%;
     min-height: 100vh;
-    padding: 20px 0 0 3%;
+    padding: 20px 3% 0;
+}
+
+.admin-list li {
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+.admin-list li p {
+    display: inline-block;
+    width: 30%;
 }

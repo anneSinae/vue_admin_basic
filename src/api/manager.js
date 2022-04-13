@@ -43,4 +43,11 @@ export default {
             setTimeout(() => resolve(response), 1000);
         });
     },
+    list: async function () {
+        return new Promise((resolve) => {
+            response.data.resultCode = 0;
+            response.data.rows = managers;
+            setTimeout(() => resolve(response), 500);
+        });
+    },
 }
