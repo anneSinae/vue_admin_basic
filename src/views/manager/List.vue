@@ -6,7 +6,12 @@
             <p>{{item.name}}</p>
             <p>{{item.phoneNumber}}</p>
         </li>
+        
+        <li v-if="adminListTotal == 0">
+            목록이 없습니다.
+        </li>
     </ul>
+    <div class="total">전체: {{adminListTotal}}</div>
 </template>
 
 <script>
@@ -18,6 +23,7 @@ export default {
     data() {
         return {
             adminList: null,
+            adminListTotal: 0
         }
     },
 
@@ -27,6 +33,7 @@ export default {
             .then((response) => {
                 console.log(response.data.rows);
                 this.adminList = response.data.rows;
+                this.adminListTotal = this.adminList.length;
             })
             .catch((e) => {
                 console.log(e);
