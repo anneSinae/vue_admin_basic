@@ -6,6 +6,10 @@ const routes = [
     name: 'Home',
     component: Home
   },
+  {
+    path: '/logout',
+    component: () => import('@/views/Logout.vue')
+  }
 ]
 
 const router = createRouter({
