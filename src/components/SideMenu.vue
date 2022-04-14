@@ -17,6 +17,10 @@
                     <i class="fas fa-unlock-alt"></i>
                     <span>비번찾기</span>
                 </el-menu-item>
+                <el-menu-item index="/statis">
+                    <i class="fas fa-pie-chart"></i>
+                    <span>통계관리</span>
+                </el-menu-item>
             </el-menu-item-group>
         </el-menu>
 

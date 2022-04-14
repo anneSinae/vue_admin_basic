@@ -96,3 +96,8 @@ a {text-decoration: none;}
     from { opacity: 0; }
     to { opacity: 1; }
 }
+
+.chartbox > div {
+    max-width: 600px;
+    margin: auto;
+}

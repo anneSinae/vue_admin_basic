@@ -18,6 +18,10 @@ const routes = [
       path: '/manager/findPassword',
       component: () => import('@/views/manager/FindPassword.vue')
   },
+  {
+    path: '/statis',
+    component: () => import('@/views/Statistics.vue')
+},
 ]
 
 const router = createRouter({
