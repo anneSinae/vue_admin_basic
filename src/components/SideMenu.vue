@@ -21,6 +21,10 @@
                     <i class="fas fa-pie-chart"></i>
                     <span>통계관리</span>
                 </el-menu-item>
+                <el-menu-item index="/movies">
+                    <i class="fas fa-pie-chart"></i>
+                    <span>영화목록</span>
+                </el-menu-item>
             </el-menu-item-group>
         </el-menu>
 

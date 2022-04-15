@@ -1,5 +1,6 @@
 import store from '@/store'
 import managers from '@/data/managers'
+import movies from '@/data/movies'
 import md5 from 'md5'
 
 let response = {
@@ -47,6 +48,13 @@ export default {
         return new Promise((resolve) => {
             response.data.resultCode = 0;
             response.data.rows = managers;
+            setTimeout(() => resolve(response), 500);
+        });
+    },
+    listMovie: async function () {
+        return new Promise((resolve) => {
+            response.data.resultCode = 0;
+            response.data.rows = movies;
             setTimeout(() => resolve(response), 500);
         });
     },

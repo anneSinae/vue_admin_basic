@@ -21,7 +21,11 @@ const routes = [
   {
     path: '/statis',
     component: () => import('@/views/Statistics.vue')
-},
+  },
+  {
+    path: '/movies',
+    component: () => import('@/views/ListMovies.vue')
+  },
 ]
 
 const router = createRouter({
