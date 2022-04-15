@@ -51,10 +51,12 @@ export default {
             setTimeout(() => resolve(response), 500);
         });
     },
-    listMovie: async function () {
+    listMovie: async function (pageNum, listLimit) {
         return new Promise((resolve) => {
+            let lastNum = (pageNum+1)*listLimit;
             response.data.resultCode = 0;
-            response.data.rows = movies;
+            response.data.rows = movies.slice( pageNum*listLimit, lastNum );
+            response.data.total = movies.length;
             setTimeout(() => resolve(response), 500);
         });
     },

@@ -13,6 +13,8 @@
     </ul>
     <div class="total">전체: {{movieListTotal}}</div>
     <button class="btn_top" @click="goTop()">Top</button>
+    <div class="loading" v-if="showLoading">로딩중</div>
+    <div class="guideLast" v-if="showGuideLast">마지막 목록입니다.</div>
 </template>
 
 <script>
@@ -23,34 +25,49 @@ export default {
     
     data() {
         return {
-            movieList: null,
+            movieList: [],
             movieListTotal: 0,
+            pageNum: 0,
+            listLimit: 7,
+            showLoading: false,
+            showGuideLast: false
         }
     },
     
     mounted() {
-        apiManagers
-            .listMovie()
-            .then((response) => {
-                console.log(response.data.rows);
-                this.movieList = response.data.rows;
-                this.movieListTotal = this.movieList.length;
-            })
-            .catch((e) => {
-                console.log(e);
-            });
+        this.getList(this.pageNum, this.listLimit);
     },
 
     methods: {
+        getList(pgNum, limit) {
+            apiManagers
+                .listMovie(pgNum, limit)
+                .then((response) => {
+                    this.movieList = this.movieList.concat(response.data.rows);
+                    this.movieListTotal = response.data.total;
+                    this.showLoading= false;
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
+        },
+        
         chkListScroll(e) {
             const { scrollHeight, scrollTop, clientHeight } = e.target;
             const isAtTheBottom = scrollHeight === scrollTop + clientHeight;
-            if (isAtTheBottom) this.loadListMore();
+            if (isAtTheBottom) {
+                if(this.movieList.length !=  this.movieListTotal) {
+                    this.loadListMore();
+                } else {
+                    setTimeout(() => {this.showGuideLast= true}, 500);
+                }
+                setTimeout(() => {this.showGuideLast= false}, 1200);
+            }
         },
         loadListMore() {
-            if (this.movieList.length < this.total) {
-                console.log("more");
-            }
+            this.showLoading= true;
+            this.pageNum++;
+            this.getList(this.pageNum, this.listLimit);
         },
 
         goTop() {

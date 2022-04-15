@@ -49,6 +49,7 @@ a {text-decoration: none;}
 }
 
 .container {
+    position: relative;
     float: right;
     width: 85%;
     min-height: 100vh;
@@ -129,4 +130,34 @@ a {text-decoration: none;}
     color: #fff;
     border: 0;
     border-radius: 100px;
+}
+
+.loading {
+    position: absolute;
+    bottom: 20px;
+    left: 3%;
+    width: 94%;
+    padding: 20px 0;
+    border: 1px solid #41b883;
+    background: #fff;
+    text-align: center;
+}
+
+.guideLast {
+    position: absolute;
+    bottom: 20px;
+    left: 3%;
+    width: 94%;
+    padding: 20px 0;
+    border: 1px solid #35495e;
+    background: #fff;
+    text-align: center;
+    animation-duration: 0.8s;
+    animation-name: guideLastAni;
+}
+@keyframes guideLastAni {
+    0% { opacity: 0; }
+    15% { opacity: 1; }
+    75% { opacity: 1; }
+    100% { opacity: 0; }
 }
